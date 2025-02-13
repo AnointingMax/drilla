@@ -1,4 +1,4 @@
-import { Logo } from "@/assets"
+import { Logo, MenuIcon } from "@/assets"
 import { Button } from "./ui/button"
 import { Link } from "react-router-dom"
 import {
@@ -42,8 +42,7 @@ const TopNav = () => {
          <Button className="hidden lg:flex">Join Waitlist</Button>
          <DropdownMenu>
             <DropdownMenuTrigger className="lg:hidden">
-               Hello
-               {/* <MenuIcon /> */}
+               <MenuIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="min-w-48">
                <DropdownMenuItem>List your equipment</DropdownMenuItem>
