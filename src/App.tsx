@@ -1,12 +1,29 @@
 import './App.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { About, Contact, Home } from '@/pages';
+import { Suspense } from 'react';
+import Layout from './layout';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> }
+    ]
+  },
+]);
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl text-red-500 font-bold underline">
-        Hello world!
-      </h1>
-    </div>
+    <Suspense>
+      <RouterProvider router={router} />
+    </Suspense>
   )
 }
 
