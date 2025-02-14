@@ -80,6 +80,35 @@ body {
 	background-color: white;
 }
 
+.counter-parent {
+	counter-reset: counter;
+}
+.counter-element {
+	counter-increment: counter;
+}
+.counter-element:before {
+	content: counter(counter);
+	margin-right: 15px;
+	background-color: var(--bg-color);
+	width: 35px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	font-weight: 600;
+}
+.counter-parent .grid > div:nth-child(1) .counter-element {
+	--bg-color: #e3e1ca;
+}
+.counter-parent .grid > div:nth-child(2) .counter-element {
+	--bg-color: #cae3cb;
+}
+.counter-parent .grid > div:nth-child(3) .counter-element {
+	--bg-color: #cad7e3;
+}
+
 @media (max-width: 768px) {
 	html {
 		font-size: 90.5%;
