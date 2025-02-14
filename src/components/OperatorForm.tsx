@@ -10,9 +10,12 @@ import {
 } from "@/components/ui/form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Input } from "@/components/ui/input"
-import { useForm } from "react-hook-form"
+import { useForm, UseFormReturn } from "react-hook-form"
 import { Button } from "./ui/button";
-import { EmailIcon, PhoneIcon, UserIcon } from "@/assets";
+import { BusIcon, CardIcon, EmailIcon, PhoneIcon, UserIcon } from "@/assets";
+import { useState } from "react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import Dropzone from "./Dropzone";
 
 const imageSchema = z
    .instanceof(File, { message: "A file is required" })
@@ -23,23 +26,33 @@ const imageSchema = z
       message: "Only JPEG, PNG, GIF, and WEBP images are allowed",
    });
 
-const formSchema = z.object({
+const stepOneSchema = z.object({
    fullName: z.string().nonempty("This field is required"),
    email: z.string().email().nonempty("This field is required"),
    phone: z.string().nonempty("This field is required"),
-   rentRate: z.number().positive(),
+});
+
+const stepTwoSchema = z.object({
+   wageRate: z.number().positive(),
+   machine: z.string().nonempty("This field is required"),
    operatorQualification: imageSchema,
    operatorImage: imageSchema,
-})
+});
+
+const formSchema = stepOneSchema.merge(stepTwoSchema)
+export type operatorFormSchema = z.infer<typeof formSchema>
 
 const OperatorForm = () => {
+   const [step, setStep] = useState<"one" | "two">("one");
+
    const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
          fullName: "",
          phone: "",
          email: "",
-         rentRate: 0
+         machine: "",
+         wageRate: 0
       },
    })
 
@@ -50,48 +63,120 @@ const OperatorForm = () => {
    return (
       <Form {...form}>
          <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4 sm:max-w-[450px] mb-auto">
-            <FormField
-               control={form.control}
-               name="fullName"
-               render={({ field }) => (
-                  <FormItem>
-                     <FormLabel>Full name</FormLabel>
-                     <FormControl className="border-[#D3D3D4]">
-                        <Input placeholder="Full name" {...field} icon={<UserIcon className="text-[#666666]" />} />
-                     </FormControl>
-                     <FormMessage />
-                  </FormItem>
-               )}
-            />
-            <FormField
-               control={form.control}
-               name="email"
-               render={({ field }) => (
-                  <FormItem>
-                     <FormLabel>Email</FormLabel>
-                     <FormControl className="border-[#D3D3D4]">
-                        <Input placeholder="@example.com" {...field} icon={<EmailIcon className="text-[#666666]" />} />
-                     </FormControl>
-                     <FormMessage />
-                  </FormItem>
-               )}
-            />
-            <FormField
-               control={form.control}
-               name="phone"
-               render={({ field }) => (
-                  <FormItem className="mb-10">
-                     <FormLabel>Phone number</FormLabel>
-                     <FormControl className="border-[#D3D3D4]">
-                        <Input placeholder="+234" {...field} icon={<PhoneIcon className="text-[#666666]" />} />
-                     </FormControl>
-                     <FormMessage />
-                  </FormItem>
-               )}
-            />
-            <Button type="button" className="h-10">Continue</Button>
+            {step == "one" ?
+               <StepOne setStep={setStep} form={form} /> :
+               <StepTwo setStep={setStep} form={form} />
+            }
          </form>
       </Form>
+   )
+}
+
+type StepProps = {
+   form: UseFormReturn<z.infer<typeof formSchema>>
+   setStep: React.Dispatch<React.SetStateAction<"one" | "two">>
+}
+
+const StepOne = ({ form, setStep }: StepProps) => {
+   const validateForm = () => {
+      const values = form.getValues()
+      const isValid = stepOneSchema.safeParse(values)
+
+      if (isValid.success) {
+         setStep("two")
+      } else {
+         form.trigger(["fullName", "email", "phone"])
+      }
+   }
+   return (
+      <div className="grid gap-2">
+         <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+               <FormItem>
+                  <FormLabel>Full name</FormLabel>
+                  <FormControl className="border-[#D3D3D4]">
+                     <Input placeholder="Full name" {...field} icon={<UserIcon className="text-[#666666]" />} />
+                  </FormControl>
+                  <FormMessage />
+               </FormItem>
+            )}
+         />
+         <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+               <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl className="border-[#D3D3D4]">
+                     <Input placeholder="@example.com" {...field} icon={<EmailIcon className="text-[#666666]" />} />
+                  </FormControl>
+                  <FormMessage />
+               </FormItem>
+            )}
+         />
+         <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+               <FormItem className="mb-10">
+                  <FormLabel>Phone number</FormLabel>
+                  <FormControl className="border-[#D3D3D4]">
+                     <Input placeholder="+234" {...field} icon={<PhoneIcon className="text-[#666666]" />} />
+                  </FormControl>
+                  <FormMessage />
+               </FormItem>
+            )}
+         />
+         <Button type="button" className="h-10" onClick={validateForm}>Continue</Button>
+      </div>
+   )
+}
+
+const StepTwo = ({ form, setStep }: StepProps) => {
+   return (
+      <div className="grid gap-2">
+         <FormField
+            control={form.control}
+            name="machine"
+            render={({ field }) => (
+               <FormItem>
+                  <FormLabel>Machine you drive/operate?</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                     <FormControl>
+                        <SelectTrigger>
+                           <SelectValue icon={<BusIcon className="text-[#666666]" />} placeholder="Select machine" />
+                        </SelectTrigger>
+                     </FormControl>
+                     <SelectContent>
+                        <SelectItem value="tractor">Tractor</SelectItem>
+                        <SelectItem value="Drill">Drill</SelectItem>
+                        <SelectItem value="forklift">Forklift</SelectItem>
+                     </SelectContent>
+                  </Select>
+                  <FormMessage />
+               </FormItem>
+            )}
+         />
+         <FormField
+            control={form.control}
+            name="wageRate"
+            render={({ field }) => (
+               <FormItem>
+                  <FormLabel>Wage charge per hour </FormLabel>
+                  <FormControl className="border-[#D3D3D4]">
+                     <Input placeholder="N" {...field} icon={<CardIcon className="text-[#666666]" />} />
+                  </FormControl>
+                  <FormMessage />
+               </FormItem>
+            )}
+         />
+         <Dropzone name="operatorQualification" />
+         <Dropzone name="operatorImage" />
+         <Button type="button" variant="outline" className="h-10" onClick={() => setStep("one")}>Previous</Button>
+         <Button type="submit" className="h-10">Done</Button>
+      </div>
    )
 }
 

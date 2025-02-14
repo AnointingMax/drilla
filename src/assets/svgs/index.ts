@@ -13,6 +13,7 @@ import UserIcon from "./user.svg";
 import XIcon from "./x.svg";
 import YoutubeIcon from "./youtube.svg";
 import MenuIcon from "./menu.svg";
+import CloseIcon from "./close.svg";
 
 export {
    BusIcon,
@@ -29,5 +30,6 @@ export {
    UserIcon,
    XIcon,
    YoutubeIcon,
-   MenuIcon
+   MenuIcon,
+   CloseIcon
 }
