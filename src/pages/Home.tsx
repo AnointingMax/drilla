@@ -1,5 +1,6 @@
 import { BusIcon, Hero, Image1, Image2, UserIcon } from "@/assets"
 import { DisplayCell } from "@/components"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 
 const Home = () => {
@@ -103,6 +104,51 @@ const Home = () => {
                </div>
                <img src={Image2} className="w-full" alt="" />
             </div>
+         </section>
+         <section className="pb-28">
+            <h2 className="mb-8 grid text-3xl font-medium lg:text-5xl text-center">Frequently Asked Questions</h2>
+            <Accordion type="multiple" className="max-w-[750px] w-full grid gap-4 mx-auto">
+               <AccordionItem value="item-1">
+                  <AccordionTrigger>How long does my order take?</AccordionTrigger>
+                  <AccordionContent>
+                     Orders typically take 3-5 business days to process and ship, but delivery times may
+                     vary based on your location and selected shipping method. You'll receive a tracking
+                     number as soon as your order is on its way!
+                  </AccordionContent>
+               </AccordionItem>
+               <AccordionItem value="item-2">
+                  <AccordionTrigger>How can i hire an operator</AccordionTrigger>
+                  <AccordionContent>
+                     Orders typically take 3-5 business days to process and ship, but delivery times may
+                     vary based on your location and selected shipping method. You'll receive a tracking
+                     number as soon as your order is on its way!
+                  </AccordionContent>
+               </AccordionItem>
+               <AccordionItem value="item-3">
+                  <AccordionTrigger>How can i hire an operator</AccordionTrigger>
+                  <AccordionContent>
+                     Orders typically take 3-5 business days to process and ship, but delivery times may
+                     vary based on your location and selected shipping method. You'll receive a tracking
+                     number as soon as your order is on its way!
+                  </AccordionContent>
+               </AccordionItem>
+               <AccordionItem value="item-4">
+                  <AccordionTrigger>How do i rent a tractor for my site</AccordionTrigger>
+                  <AccordionContent>
+                     Orders typically take 3-5 business days to process and ship, but delivery times may
+                     vary based on your location and selected shipping method. You'll receive a tracking
+                     number as soon as your order is on its way!
+                  </AccordionContent>
+               </AccordionItem>
+               <AccordionItem value="item-5">
+                  <AccordionTrigger>How do i rent a tractor for my site</AccordionTrigger>
+                  <AccordionContent>
+                     Orders typically take 3-5 business days to process and ship, but delivery times may
+                     vary based on your location and selected shipping method. You'll receive a tracking
+                     number as soon as your order is on its way!
+                  </AccordionContent>
+               </AccordionItem>
+            </Accordion>
          </section>
       </>
    )
