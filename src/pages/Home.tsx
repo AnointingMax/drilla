@@ -60,19 +60,19 @@ const Home = () => {
             <p className="mb-8 text-xl text-sub-text max-w-[600px]">Discover how easy it is to rent with us a simple, step-by-step process
                to get the equipment and operators you need, right when you need them!</p>
             <div className="counter-parent grid gap-8 md:gap-12 md:grid-cols-[2fr,3fr] items-center">
-               <img src={Image1} className="max-md:order-2 w-full" alt="" />
-               <div className="max-md:order-1 grid gap-6">
-                  <div>
+               <img src={Image1} className="w-full max-md:order-2" alt="" />
+               <div className="grid justify-center gap-6 max-md:order-1">
+                  <div className="max-w-[750px]">
                      <p className="text-xl font-bold text-dark-text counter-element">Search Equipments</p>
                      <p className="text-sub-text text-base font-medium ml-[50px]">Find the perfect equipment for your project – browse our wide range of
                         construction tools and machinery to match your needs</p>
                   </div>
-                  <div>
+                  <div className="max-w-[750px]">
                      <p className="text-xl font-bold text-dark-text counter-element">Compare Prices</p>
                      <p className="text-sub-text text-base font-medium ml-[50px]">Get the best value for your project easily compare prices and choose the
                         most cost-effective option for your equipment rentals!</p>
                   </div>
-                  <div>
+                  <div className="max-w-[750px]">
                      <p className="text-xl font-bold text-dark-text counter-element">Rent Equipment Online</p>
                      <p className="text-sub-text text-base font-medium ml-[50px]">Convenient and hassle-free – rent construction equipment online anytime,
                         anywhere, and get it delivered to your site!</p>
@@ -85,18 +85,18 @@ const Home = () => {
             <p className="mb-8 text-xl text-sub-text max-w-[600px]">Learn how simple it is to hire skilled operators – a quick and straightforward
                process to match you with the right professionals for your project!</p>
             <div className="counter-parent grid gap-8 md:gap-12 md:grid-cols-[3fr,2fr] items-center">
-               <div className="grid gap-6">
-                  <div>
+               <div className="grid justify-center gap-6">
+                  <div className="max-w-[750px]">
                      <p className="text-xl font-bold text-dark-text counter-element">Search Operators</p>
                      <p className="text-sub-text text-base font-medium ml-[50px]">Find experienced operators for your project – explore our network of
                         skilled professionals to get the job done right!</p>
                   </div>
-                  <div>
+                  <div className="max-w-[750px]">
                      <p className="text-xl font-bold text-dark-text counter-element">Check Expertise</p>
                      <p className="text-sub-text text-base font-medium ml-[50px]">Evaluate operator expertise with ease – review qualifications and skills
                         to ensure you hire the best professional for your needs</p>
                   </div>
-                  <div>
+                  <div className="max-w-[750px]">
                      <p className="text-xl font-bold text-dark-text counter-element">Compare Wages</p>
                      <p className="text-sub-text text-base font-medium ml-[50px]">Make informed decisions – compare operator wages to find the perfect
                         balance between expertise and your budget</p>
@@ -106,7 +106,7 @@ const Home = () => {
             </div>
          </section>
          <section className="pb-28">
-            <h2 className="mb-8 grid text-3xl font-medium lg:text-5xl text-center">Frequently Asked Questions</h2>
+            <h2 className="grid mb-8 text-3xl font-medium text-center lg:text-5xl">Frequently Asked Questions</h2>
             <Accordion type="multiple" className="max-w-[750px] w-full grid gap-4 mx-auto">
                <AccordionItem value="item-1">
                   <AccordionTrigger>How long does my order take?</AccordionTrigger>

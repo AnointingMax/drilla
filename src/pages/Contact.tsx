@@ -1,4 +1,4 @@
-import { About } from "@/assets"
+import { Contact as ContactImage } from "@/assets"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -37,7 +37,7 @@ const Contact = () => {
    return (
       <div className="grid md:grid-cols-2 gap-10 min-h-[70vh] mb-24">
          <div className="grid">
-            <h1 className="text-dark-text text-2xl font-bold font-Archivo mt-auto">Contact Us</h1>
+            <h1 className="mt-auto text-2xl font-bold text-dark-text font-Archivo">Contact Us</h1>
             <p className="text-sub-text font-medium text-sm max-w-[250px]">
                Send us a message, or put a call
                through we are glad to hear from you
@@ -91,8 +91,8 @@ const Contact = () => {
             </Form>
          </div>
          <div className="bg-contain hidden relative bg-no-repeat text-[#F4EEEE] text-sm font-medium md:flex">
-            <img src={About} className="absolute inset-0 w-full h-full -z-1" alt="" />
-            <div className="z-10 gradient h-2/3 flex flex-col mt-auto px-6 pb-8">
+            <img src={ContactImage} className="absolute inset-0 w-full h-full -z-1" alt="" />
+            <div className="z-10 flex flex-col px-6 pb-8 mt-auto gradient h-2/3">
                <p className="mt-auto mb-4">
                   Thank you for being part of our journey to redefine construction solutions with ease and
                   efficiency. Your trust not only powers seamless projects but also supports reliability and
