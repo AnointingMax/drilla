@@ -7,6 +7,7 @@ import {
    DropdownMenuItem,
    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { EquipmentOperator } from "@/portals"
 
 const TopNav = () => {
    return (
@@ -14,25 +15,25 @@ const TopNav = () => {
          <Link to="/">
             <img src={Logo} alt="" />
          </Link>
-         <ul className="hidden lg:flex items-center">
+         <ul className="items-center hidden lg:flex">
             <li>
-               <Button variant="none" className="hover:underline font-medium">List your equipment</Button>
+               <EquipmentOperator className="font-medium hover:underline" />
             </li>
             <li>
-               <Button variant="none" className="hover:underline font-medium">Operators</Button>
+               <Button variant="none" className="font-medium hover:underline">Operators</Button>
             </li>
             <li>
-               <Button variant="none" className="hover:underline font-medium">FAQs</Button>
+               <Button variant="none" className="font-medium hover:underline">FAQs</Button>
             </li>
             <li>
-               <Button variant="none" className="hover:underline font-medium" asChild>
+               <Button variant="none" className="font-medium hover:underline" asChild>
                   <Link to="/contact">
                      Contact
                   </Link>
                </Button>
             </li>
             <li>
-               <Button variant="none" className="hover:underline font-medium" asChild>
+               <Button variant="none" className="font-medium hover:underline" asChild>
                   <Link to="/about">
                      About
                   </Link>
@@ -45,7 +46,9 @@ const TopNav = () => {
                <MenuIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="min-w-48">
-               <DropdownMenuItem>List your equipment</DropdownMenuItem>
+               <DropdownMenuItem asChild>
+                  <EquipmentOperator />
+               </DropdownMenuItem>
                <DropdownMenuItem>Operators</DropdownMenuItem>
                <DropdownMenuItem>FAQs</DropdownMenuItem>
                <DropdownMenuItem asChild>
