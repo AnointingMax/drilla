@@ -1,4 +1,4 @@
-import { TopNav } from "@/components"
+import { Footer, TopNav } from "@/components"
 import { Outlet } from "react-router-dom"
 
 const Layout = () => {
@@ -6,6 +6,7 @@ const Layout = () => {
       <div className='*:lg:px-12 *:px-6'>
          <TopNav />
          <Outlet />
+         <Footer />
       </div>
    )
 }

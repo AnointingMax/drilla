@@ -150,6 +150,7 @@ const Home = () => {
                </AccordionItem>
             </Accordion>
          </section>
+
       </>
    )
 }
