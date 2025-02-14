@@ -62,7 +62,7 @@ const Contact = () => {
                      name="phone"
                      render={({ field }) => (
                         <FormItem>
-                           <FormLabel>Email</FormLabel>
+                           <FormLabel>Phone number</FormLabel>
                            <FormControl className="bg-[#FBF7F7] border-[#D3D3D4]">
                               <Input placeholder="+234" {...field} />
                            </FormControl>
