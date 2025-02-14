@@ -109,6 +109,10 @@ body {
 	--bg-color: #cad7e3;
 }
 
+.gradient {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 30.5%, rgba(168, 124, 59, 0) 100%);
+}
+
 @media (max-width: 768px) {
 	html {
 		font-size: 90.5%;
