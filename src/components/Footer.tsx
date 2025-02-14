@@ -1,40 +1,46 @@
 import { FacebookIcon, InstagramIcon, LogoInverted, XIcon, YoutubeIcon } from "@/assets"
-
+import { Link } from "react-router-dom"
 
 const Footer = () => {
    return (
       <>
          <footer className="py-12 grid gap-12 px-20 bg-[#231B15] rounded-2xl">
-            <div className="flex flex-wrap items-start gap-8 justify-between">
+            <div className="flex flex-wrap items-start justify-between gap-8">
                <img src={LogoInverted} alt="" />
-               <div className="flex gap-x-16 gap-y-6 flex-wrap">
-                  <div className="text-white grid gap-1">
-                     <p className="font-bold text-sm">For Customers</p>
-                     <ul className="font-light text-sm grid gap-2">
+               <div className="flex flex-wrap gap-x-16 gap-y-6">
+                  <div className="grid gap-1 text-white">
+                     <p className="text-sm font-bold">For Customers</p>
+                     <ul className="grid gap-2 text-sm font-light">
                         <li>Join Waitlist</li>
                         <li>FAQs</li>
-                        <li>About Us</li>
+                        <li>
+                           <Link to="/about">About Us</Link>
+                        </li>
                      </ul>
                   </div>
-                  <div className="text-white grid gap-1">
-                     <p className="font-bold text-sm">For Owners</p>
-                     <ul className="font-light text-sm grid gap-2">
+                  <div className="grid gap-1 text-white">
+                     <p className="text-sm font-bold">For Owners</p>
+                     <ul className="grid gap-2 text-sm font-light">
                         <li>List Equipments</li>
                         <li>FAQs</li>
-                        <li>About Us</li>
+                        <li>
+                           <Link to="/about">About Us</Link>
+                        </li>
                      </ul>
                   </div>
-                  <div className="text-white grid gap-1">
-                     <p className="font-bold text-sm">Operators</p>
-                     <ul className="font-light text-sm grid gap-2">
+                  <div className="grid gap-1 text-white">
+                     <p className="text-sm font-bold">Operators</p>
+                     <ul className="grid gap-2 text-sm font-light">
                         <li>Register Now</li>
                         <li>FAQs</li>
-                        <li>About Us</li>
+                        <li>
+                           <Link to="/about">About Us</Link>
+                        </li>
                      </ul>
                   </div>
-                  <div className="text-white grid gap-1">
-                     <p className="font-bold text-sm">Contact</p>
-                     <ul className="font-light text-sm grid gap-2">
+                  <div className="grid gap-1 text-white">
+                     <p className="text-sm font-bold">Contact</p>
+                     <ul className="grid gap-2 text-sm font-light">
                         <li>+234 00903390</li>
                         <li>+233 049994040</li>
                         <li>Drilla@gmail.com</li>
@@ -59,7 +65,7 @@ const Footer = () => {
                </ul>
             </div>
          </footer>
-         <div className="flex flex-wrap-reverse items-center justify-between py-6 gap-5">
+         <div className="flex flex-wrap-reverse items-center justify-between gap-5 py-6">
             <p className="text-xs font-light">© {new Date().getFullYear()} All Rights Reserved</p>
             <ul className="flex flex-wrap items-center gap-5 text-xs">
                <li><a href="#">Privacy Policy</a></li>
