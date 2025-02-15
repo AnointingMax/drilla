@@ -23,7 +23,7 @@ const EquipmentOperator = ({ defaultTab, trigger }: Props) => {
          <DialogTrigger asChild>
             {trigger}
          </DialogTrigger>
-         <DialogContent className="max-w-[700px] px-24">
+         <DialogContent className="max-w-[700px] md:px-24">
             <Tabs defaultValue={defaultTab}>
                <TabsList className="grid w-full grid-cols-2 mb-10">
                   <TabsTrigger value="heavy-equipment">Heavy Equipments</TabsTrigger>
