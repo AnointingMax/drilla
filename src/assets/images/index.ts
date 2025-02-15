@@ -18,6 +18,8 @@ import Equipment1 from "./equipment-1.png"
 import Equipment2 from "./equipment-2.png"
 import Equipment3 from "./equipment-3.png"
 import Equipment4 from "./equipment-4.png"
+import Equipment5 from "./equipment-5.jpg"
+import Equipment6 from "./equipment-6.jpg"
 
 export {
    Logo,
@@ -40,4 +42,6 @@ export {
    Equipment2,
    Equipment3,
    Equipment4,
+   Equipment5,
+   Equipment6,
 }

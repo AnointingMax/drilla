@@ -46,12 +46,17 @@ const TopNav = () => {
                      About
                   </Link>
                </Button>
+               <li>
+                  <Button variant="none" className="font-medium hover:underline">
+                     <a href="/#faqs" target="_blank">DrillerVest</a>
+                  </Button>
+               </li>
             </li>
          </ul>
          <JoinWaitlist trigger={<Button className="hidden lg:flex">Join Waitlist</Button>} />
          <DropdownMenu>
             <DropdownMenuTrigger className="lg:hidden">
-               <MenuIcon />
+               <MenuIcon className="w-[32px] h-[32px]" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="min-w-48">
                <DropdownMenuItem asChild>
@@ -73,6 +78,7 @@ const TopNav = () => {
                <DropdownMenuItem asChild>
                   <Link to="/about">About</Link>
                </DropdownMenuItem>
+               <DropdownMenuItem><a href="/#faqs" target="_blank">DrillerVest</a></DropdownMenuItem>
             </DropdownMenuContent>
          </DropdownMenu>
       </div>

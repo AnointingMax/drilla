@@ -1,4 +1,4 @@
-import { Equipment1, Equipment2, Equipment3, Equipment4, Operator1, Operator2, Operator3, Operator4, Operator5, Operator6, Operator7, Operator8 } from "@/assets";
+import { Equipment1, Equipment2, Equipment3, Equipment4, Equipment5, Equipment6, Operator1, Operator2, Operator3, Operator4, Operator5, Operator6, Operator7, Operator8 } from "@/assets";
 
 export const MAX_FILE_SIZE = 10 * 1024 * 1024;
 export const ALLOWED_MIME_TYPES = ["image/jpeg", "image/png", "image/gif", "image/webp", "application/pdf"];
@@ -15,8 +15,10 @@ export const OPERATORS = [
 ]
 
 export const EQUIPMENT = [
-   { name: "Excavator", image: Equipment1 },
-   { name: "Tractor", image: Equipment2 },
+   { name: "Bulldozer", image: Equipment1 },
+   { name: "Tele-handler", image: Equipment2 },
    { name: "Dump Truck", image: Equipment3 },
-   { name: "Crane", image: Equipment4 },
+   { name: "Excavator", image: Equipment4 },
+   { name: "Trucks", image: Equipment5 },
+   { name: "Crane", image: Equipment6 },
 ]

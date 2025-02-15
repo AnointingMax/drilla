@@ -50,8 +50,8 @@ const JoinWaitlist = ({ trigger }: Props) => {
          </DialogTrigger>
          <DialogContent>
             <Form {...form}>
-               <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4 mb-auto w-full">
-                  <h1 className="font-semibold text-3xl text-center">Join Waitlist</h1>
+               <form onSubmit={form.handleSubmit(onSubmit)} className="grid w-full gap-4 mb-auto">
+                  <h1 className="text-3xl font-semibold text-center">Join Waitlist</h1>
                   <FormField
                      control={form.control}
                      name="firstName"
@@ -70,7 +70,7 @@ const JoinWaitlist = ({ trigger }: Props) => {
                      name="lastName"
                      render={({ field }) => (
                         <FormItem>
-                           <FormLabel>First name</FormLabel>
+                           <FormLabel>Last name</FormLabel>
                            <FormControl className="border-[#D3D3D4]">
                               <Input placeholder="+234" {...field} icon={<UserIcon className="text-[#666666]" />} />
                            </FormControl>
