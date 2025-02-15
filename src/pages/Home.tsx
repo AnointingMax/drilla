@@ -2,6 +2,7 @@ import { BusIcon, Hero, Image1, Image2, UserIcon } from "@/assets"
 import { DisplayCell } from "@/components"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
+import { EQUIPMENT, OPERATORS } from "@/lib"
 import { JoinWaitlist } from "@/portals"
 
 const Home = () => {
@@ -43,7 +44,7 @@ const Home = () => {
             <h2 className="mb-4 text-3xl font-semibold lg:text-5xl">Heavy Equipment</h2>
             <p className="mb-8 text-xl">We list all forms of heavy equipments</p>
             <div className="grid gap-x-8 gap-y-8 grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
-               {Array(8).fill("").map((_, index) => <DisplayCell key={index} />)}
+               {EQUIPMENT.map(({ image, name }, index) => <DisplayCell text={name} image={image} key={index} />)}
             </div>
             <JoinWaitlist trigger={<Button className="sm:max-w-[250px] w-full h-13 mt-12 mx-auto block">Join Waitlist</Button>} />
          </section>
@@ -52,7 +53,7 @@ const Home = () => {
             <p className="mb-8 text-xl max-w-[450px]">We help you list out skilled operators across all
                sectors to handle your equipments</p>
             <div className="grid gap-x-8 gap-y-8 grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
-               {Array(8).fill("").map((_, index) => <DisplayCell key={index} />)}
+               {OPERATORS.map(({ image, name }, index) => <DisplayCell text={name} image={image} key={index} />)}
             </div>
             <JoinWaitlist trigger={<Button className="sm:max-w-[250px] w-full h-13 mt-12 mx-auto block">Join Waitlist</Button>} />
          </section>
@@ -151,7 +152,6 @@ const Home = () => {
                </AccordionItem>
             </Accordion>
          </section>
-
       </>
    )
 }
