@@ -17,10 +17,16 @@ const TopNav = () => {
          </Link>
          <ul className="items-center hidden lg:flex">
             <li>
-               <EquipmentOperator defaultTab="heavy-equipment" label="List your equipment" className="font-medium hover:underline" />
+               <EquipmentOperator
+                  defaultTab="heavy-equipment"
+                  trigger={<Button variant="none" className="font-medium hover:underline">List your equipment</Button>}
+               />
             </li>
             <li>
-               <EquipmentOperator defaultTab="operators" label="Operators" className="font-medium hover:underline" />
+               <EquipmentOperator
+                  defaultTab="operators"
+                  trigger={<Button variant="none" className="font-medium hover:underline">Operators</Button>}
+               />
             </li>
             <li>
                <Button variant="none" className="font-medium hover:underline">FAQs</Button>
@@ -47,10 +53,16 @@ const TopNav = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="min-w-48">
                <DropdownMenuItem asChild>
-                  <EquipmentOperator label="List your equipment" defaultTab="heavy-equipment" />
+                  <EquipmentOperator
+                     trigger={<DropdownMenuItem>List your equipment</DropdownMenuItem>}
+                     defaultTab="heavy-equipment"
+                  />
                </DropdownMenuItem>
                <DropdownMenuItem asChild>
-                  <EquipmentOperator defaultTab="operators" label="Operators" />
+                  <EquipmentOperator
+                     defaultTab="operators"
+                     trigger={<DropdownMenuItem>Operators</DropdownMenuItem>}
+                  />
                </DropdownMenuItem>
                <DropdownMenuItem>FAQs</DropdownMenuItem>
                <DropdownMenuItem asChild>

@@ -3,8 +3,6 @@ import {
    DialogContent,
    DialogTrigger,
 } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib";
 import {
    Tabs,
    TabsContent,
@@ -12,18 +10,18 @@ import {
    TabsTrigger,
 } from "@/components/ui/tabs"
 import { EquipmentForm, OperatorForm } from "@/components";
+import { ReactNode } from "react";
 
 type Props = {
-   className?: string;
    defaultTab?: "heavy-equipment" | "operators";
-   label: string
+   trigger: ReactNode
 }
 
-const EquipmentOperator = ({ className, defaultTab, label }: Props) => {
+const EquipmentOperator = ({ defaultTab, trigger }: Props) => {
    return (
       <Dialog>
          <DialogTrigger asChild>
-            <Button variant="none" className={cn(className)}>{label}</Button>
+            {trigger}
          </DialogTrigger>
          <DialogContent className="max-w-[700px] px-24">
             <Tabs defaultValue={defaultTab}>
