@@ -13,7 +13,7 @@ const Footer = () => {
                      <p className="text-sm font-bold">For Customers</p>
                      <ul className="grid gap-2 text-sm font-light">
                         <JoinWaitlist trigger={<li className="cursor-pointer">Join Waitlist</li>} />
-                        <li>FAQs</li>
+                        <li><a href="/#faqs">FAQs</a></li>
                         <li>
                            <Link to="/about">About Us</Link>
                         </li>
@@ -23,7 +23,7 @@ const Footer = () => {
                      <p className="text-sm font-bold">For Owners</p>
                      <ul className="grid gap-2 text-sm font-light">
                         <li>List Equipments</li>
-                        <li>FAQs</li>
+                        <li><a href="/#faqs">FAQs</a></li>
                         <li>
                            <Link to="/about">About Us</Link>
                         </li>
@@ -33,7 +33,7 @@ const Footer = () => {
                      <p className="text-sm font-bold">Operators</p>
                      <ul className="grid gap-2 text-sm font-light">
                         <li>Register Now</li>
-                        <li>FAQs</li>
+                        <li><a href="/#faqs">FAQs</a></li>
                         <li>
                            <Link to="/about">About Us</Link>
                         </li>

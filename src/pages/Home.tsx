@@ -106,7 +106,7 @@ const Home = () => {
                <img src={Image2} className="w-full" alt="" />
             </div>
          </section>
-         <section className="pb-28">
+         <section className="pb-28" id="faqs">
             <h2 className="grid mb-8 text-3xl font-medium text-center lg:text-5xl">Frequently Asked Questions</h2>
             <Accordion type="multiple" className="max-w-[750px] w-full grid gap-4 mx-auto">
                <AccordionItem value="item-1">

@@ -29,7 +29,9 @@ const TopNav = () => {
                />
             </li>
             <li>
-               <Button variant="none" className="font-medium hover:underline">FAQs</Button>
+               <Button variant="none" className="font-medium hover:underline">
+                  <a href="/#faqs">FAQs</a>
+               </Button>
             </li>
             <li>
                <Button variant="none" className="font-medium hover:underline" asChild>
@@ -64,7 +66,7 @@ const TopNav = () => {
                      trigger={<DropdownMenuItem>Operators</DropdownMenuItem>}
                   />
                </DropdownMenuItem>
-               <DropdownMenuItem>FAQs</DropdownMenuItem>
+               <DropdownMenuItem><a href="/#faqs">FAQs</a></DropdownMenuItem>
                <DropdownMenuItem asChild>
                   <Link to="/contact">Contact</Link>
                </DropdownMenuItem>
