@@ -1,36 +1,38 @@
 import { CloseIcon } from "@/assets";
-import { Button } from "./ui/button";
 import { useDropzone } from "react-dropzone";
-import { useCallback } from "react";
+import { ReactNode, useCallback } from "react";
 import { cn, removeItemAtIndex } from "@/lib";
-import { useFormContext } from "react-hook-form";
+import { Path, PathValue, useFormContext } from "react-hook-form";
+import { FieldValues } from "react-hook-form";
 
-type Props = {
-  name: string;
+type Props<FormType extends FieldValues> = {
+  name: keyof FormType;
   multiple?: boolean;
+  icon: ReactNode
 };
 
-const Dropzone = ({
+const Dropzone = <FormType extends Record<string, unknown>>({
   name,
   multiple = false,
-}: Props) => {
-  const { setValue, getValues } = useFormContext();
+  icon
+}: Props<FormType>) => {
+  const { setValue, getValues } = useFormContext<FormType>();
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
-      const files = acceptedFiles?.map((file: File) =>
-        Object.assign(file, { preview: URL.createObjectURL(file) }),
+      setValue(
+        (name as Path<FormType>),
+        multiple ? acceptedFiles as PathValue<FormType, Path<FormType>> : acceptedFiles[0] as PathValue<FormType, Path<FormType>>,
+        { shouldValidate: true }
       );
-      setValue(name, multiple ? files : files[0]);
     },
     [name, multiple, setValue],
   );
 
-  const { getRootProps, getInputProps, open, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple,
     ...(multiple && { maxFiles: 5 }),
-    noClick: true,
     accept: {
       "text/*": [".csv", ".txt"],
       "application/msword": [".doc"],
@@ -51,7 +53,7 @@ const Dropzone = ({
     <div className="space-y-2">
       <div
         className={cn(
-          "-z-[1] flex cursor-pointer flex-col items-center gap-4 rounded border border-dashed border-[#CBD5E1] px-4 py-6",
+          "-z-[1] flex cursor-pointer flex-col items-center gap-4 rounded border border-dashed border-[#D1D1CE] px-4 py-6",
           isDragActive && "bg-gray-100",
         )}
         {...getRootProps()}
@@ -64,32 +66,20 @@ const Dropzone = ({
               <FileItem
                 key={index}
                 file={file}
-                onDelete={() => {
-                  setValue(
-                    name,
-                    removeItemAtIndex(getValues()[name] as File[], index),
-                  );
-                }}
+                onDelete={() => setValue(
+                  name as Path<FormType>,
+                  removeItemAtIndex(getValues()[name] as unknown[], index) as PathValue<FormType, Path<FormType>>,
+                )}
               />
             ))
             : !!getValues()[name] && (
               <FileItem
                 file={getValues()[name] as unknown as File}
-                onDelete={() => {
-                  setValue(name, null);
-                }}
+                onDelete={() => setValue(name as Path<FormType>, null as PathValue<FormType, Path<FormType>>)}
               />
             )}
         </div>
-        {/* <DocumentIcon className="h-[30px] w-[30px] text-[#737D8F]" /> */}
-        <p className="max-w-[290px] text-center text-xs font-medium text-[#8F97A5]">
-          {multiple
-            ? "Drag and drop some files here, or click to select files. You can upload a maximum of 5 files"
-            : "Drag and drop a file here, or click to select file. You can upload a maximum of 1 file"}
-        </p>
-        <Button type="button" variant="default" onClick={open}>
-          Upload file{multiple && "(s)"}
-        </Button>
+        {icon}
       </div>
     </div>
   );

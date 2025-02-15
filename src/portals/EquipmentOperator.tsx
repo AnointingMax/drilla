@@ -15,16 +15,18 @@ import { EquipmentForm, OperatorForm } from "@/components";
 
 type Props = {
    className?: string;
+   defaultTab?: "heavy-equipment" | "operators";
+   label: string
 }
 
-const EquipmentOperator = ({ className }: Props) => {
+const EquipmentOperator = ({ className, defaultTab, label }: Props) => {
    return (
       <Dialog>
          <DialogTrigger asChild>
-            <Button variant="none" className={cn(className)}>List your equipment</Button>
+            <Button variant="none" className={cn(className)}>{label}</Button>
          </DialogTrigger>
-         <DialogContent>
-            <Tabs>
+         <DialogContent className="max-w-[700px] px-24">
+            <Tabs defaultValue={defaultTab}>
                <TabsList className="grid w-full grid-cols-2 mb-10">
                   <TabsTrigger value="heavy-equipment">Heavy Equipments</TabsTrigger>
                   <TabsTrigger value="operators">Operators</TabsTrigger>

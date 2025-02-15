@@ -12,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Input } from "@/components/ui/input"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Button } from "./ui/button";
-import { BusIcon, CardIcon, EmailIcon, PhoneIcon, UserIcon } from "@/assets";
+import { BusIcon, CardIcon, EmailIcon, ExportIcon, GalleryIcon, PhoneIcon, UserIcon } from "@/assets";
 import { useState } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import Dropzone from "./Dropzone";
@@ -62,7 +62,7 @@ const OperatorForm = () => {
 
    return (
       <Form {...form}>
-         <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4 sm:max-w-[450px] mb-auto">
+         <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4 mb-auto w-full">
             {step == "one" ?
                <StepOne setStep={setStep} form={form} /> :
                <StepTwo setStep={setStep} form={form} />
@@ -89,7 +89,7 @@ const StepOne = ({ form, setStep }: StepProps) => {
       }
    }
    return (
-      <div className="grid gap-2">
+      <div className="grid gap-3">
          <FormField
             control={form.control}
             name="fullName"
@@ -136,7 +136,7 @@ const StepOne = ({ form, setStep }: StepProps) => {
 
 const StepTwo = ({ form, setStep }: StepProps) => {
    return (
-      <div className="grid gap-2">
+      <div className="grid gap-3">
          <FormField
             control={form.control}
             name="machine"
@@ -172,8 +172,28 @@ const StepTwo = ({ form, setStep }: StepProps) => {
                </FormItem>
             )}
          />
-         <Dropzone name="operatorQualification" />
-         <Dropzone name="operatorImage" />
+         <FormField
+            control={form.control}
+            name="operatorQualification"
+            render={() => (
+               <FormItem>
+                  <FormLabel>Upload Operator’s Qualification</FormLabel>
+                  <Dropzone<operatorFormSchema> name="operatorQualification" icon={<ExportIcon className="text-[#666666]" />} />
+                  <FormMessage />
+               </FormItem>
+            )}
+         />
+         <FormField
+            control={form.control}
+            name="operatorImage"
+            render={() => (
+               <FormItem className="mb-10">
+                  <FormLabel>Upload Your Image</FormLabel>
+                  <Dropzone<operatorFormSchema> name="operatorImage" icon={<GalleryIcon className="text-[#666666]" />} />
+                  <FormMessage />
+               </FormItem>
+            )}
+         />
          <Button type="button" variant="outline" className="h-10" onClick={() => setStep("one")}>Previous</Button>
          <Button type="submit" className="h-10">Done</Button>
       </div>
