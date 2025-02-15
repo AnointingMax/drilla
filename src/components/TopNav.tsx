@@ -7,7 +7,7 @@ import {
    DropdownMenuItem,
    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { EquipmentOperator } from "@/portals"
+import { EquipmentOperator, JoinWaitlist } from "@/portals"
 
 const TopNav = () => {
    return (
@@ -46,7 +46,7 @@ const TopNav = () => {
                </Button>
             </li>
          </ul>
-         <Button className="hidden lg:flex">Join Waitlist</Button>
+         <JoinWaitlist trigger={<Button className="hidden lg:flex">Join Waitlist</Button>} />
          <DropdownMenu>
             <DropdownMenuTrigger className="lg:hidden">
                <MenuIcon />

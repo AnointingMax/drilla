@@ -1,4 +1,5 @@
 import { FacebookIcon, InstagramIcon, LogoInverted, XIcon, YoutubeIcon } from "@/assets"
+import { JoinWaitlist } from "@/portals"
 import { Link } from "react-router-dom"
 
 const Footer = () => {
@@ -11,7 +12,7 @@ const Footer = () => {
                   <div className="grid gap-1 text-white">
                      <p className="text-sm font-bold">For Customers</p>
                      <ul className="grid gap-2 text-sm font-light">
-                        <li>Join Waitlist</li>
+                        <JoinWaitlist trigger={<li className="cursor-pointer">Join Waitlist</li>} />
                         <li>FAQs</li>
                         <li>
                            <Link to="/about">About Us</Link>

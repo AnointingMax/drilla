@@ -2,6 +2,7 @@ import { BusIcon, Hero, Image1, Image2, UserIcon } from "@/assets"
 import { DisplayCell } from "@/components"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
+import { JoinWaitlist } from "@/portals"
 
 const Home = () => {
    return (
@@ -16,7 +17,7 @@ const Home = () => {
                         projects rent high-quality equipment and hire skilled operators
                         to get the job done efficiently and professionally
                      </p>
-                     <Button className="md:max-w-md h-13 sm:mx-auto lg:mx-0">Join Waitlist</Button>
+                     <JoinWaitlist trigger={<Button className="md:max-w-md h-13 sm:mx-auto lg:mx-0">Join Waitlist</Button>} />
                   </div>
                </div>
                <img src={Hero} className="max-lg:order-3" alt="" />
@@ -44,7 +45,7 @@ const Home = () => {
             <div className="grid gap-x-8 gap-y-8 grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
                {Array(8).fill("").map((_, index) => <DisplayCell key={index} />)}
             </div>
-            <Button className="sm:max-w-[250px] w-full h-13 mt-12 mx-auto block">Join Waitlist</Button>
+            <JoinWaitlist trigger={<Button className="sm:max-w-[250px] w-full h-13 mt-12 mx-auto block">Join Waitlist</Button>} />
          </section>
          <section className="pb-28">
             <h2 className="mb-4 text-3xl font-semibold lg:text-5xl">Hire all Kinds of Operators</h2>
@@ -53,7 +54,7 @@ const Home = () => {
             <div className="grid gap-x-8 gap-y-8 grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
                {Array(8).fill("").map((_, index) => <DisplayCell key={index} />)}
             </div>
-            <Button className="sm:max-w-[250px] w-full h-13 mt-12 mx-auto block">Join Waitlist</Button>
+            <JoinWaitlist trigger={<Button className="sm:max-w-[250px] w-full h-13 mt-12 mx-auto block">Join Waitlist</Button>} />
          </section>
          <section className="pb-28">
             <h2 className="mb-4 text-3xl font-semibold lg:text-5xl">How Renting Works?</h2>
