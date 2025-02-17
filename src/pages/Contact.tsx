@@ -50,7 +50,7 @@ const Contact = () => {
                      render={({ field }) => (
                         <FormItem>
                            <FormLabel>Email</FormLabel>
-                           <FormControl className="bg-[#FBF7F7] border-[#D3D3D4]">
+                           <FormControl className="border-[#D3D3D4]">
                               <Input placeholder="@example.com" {...field} />
                            </FormControl>
                            <FormMessage />
@@ -63,7 +63,7 @@ const Contact = () => {
                      render={({ field }) => (
                         <FormItem>
                            <FormLabel>Phone number</FormLabel>
-                           <FormControl className="bg-[#FBF7F7] border-[#D3D3D4]">
+                           <FormControl className="border-[#D3D3D4]">
                               <Input placeholder="+234" {...field} />
                            </FormControl>
                            <FormMessage />
@@ -76,7 +76,7 @@ const Contact = () => {
                      render={({ field }) => (
                         <FormItem>
                            <FormLabel>Message</FormLabel>
-                           <FormControl className="bg-[#FBF7F7] border-[#D3D3D4]">
+                           <FormControl className="border-[#D3D3D4]">
                               <Textarea
                                  placeholder="Type Message"
                                  {...field}
